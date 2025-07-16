@@ -1,7 +1,7 @@
 {
   "name": "my-q-tax-identifiers",
   "version": "1.0.0",
-  "homepage": "https://github.com/zhukyuri/my-q-format-response-aws-lambda",
+  "homepage": "https://github.com/zhukyuri/my-q-tax-identifiers",
   "description": "my-q-tax-identifiers",
   "main": "index.js",
   "private": false,
