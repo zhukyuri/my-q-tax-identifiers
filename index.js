@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.detectTINCountry = exports.validateTIN = exports.CA_BN_REGEX = exports.CA_SIN_REGEX = exports.US_EIN_REGEX = exports.US_ITIN_REGEX = exports.US_SSN_REGEX = exports.UK_UTR_REGEX = exports.UK_NIN_REGEX = exports.NL_TIN_REGEX = exports.LT_TIN_REGEX = exports.RO_TIN_REGEX = exports.CZ_TIN_REGEX = exports.PL_TIN_REGEX = exports.ES_TIN_REGEX = exports.IT_TIN_REGEX = exports.FR_TIN_REGEX = exports.DE_TIN_REGEX = exports.UA_TIN_REGEX = void 0;
+exports.detectTINCountry = exports.TIN_PATTERNS = exports.validateTIN = exports.CA_BN_REGEX = exports.CA_SIN_REGEX = exports.US_EIN_REGEX = exports.US_ITIN_REGEX = exports.US_SSN_REGEX = exports.UK_UTR_REGEX = exports.UK_NIN_REGEX = exports.NL_TIN_REGEX = exports.LT_TIN_REGEX = exports.RO_TIN_REGEX = exports.CZ_TIN_REGEX = exports.PL_TIN_REGEX = exports.ES_TIN_REGEX = exports.IT_TIN_REGEX = exports.FR_TIN_REGEX = exports.DE_TIN_REGEX = exports.UA_TIN_REGEX = void 0;
 // 🇺🇦 Україна (ІПН)
 exports.UA_TIN_REGEX = /^\d{10}$/;
 // 🇩🇪 Німеччина (IdNr)
@@ -63,7 +63,7 @@ function validateTIN(code, country) {
     return (_a = regex === null || regex === void 0 ? void 0 : regex.test(code)) !== null && _a !== void 0 ? _a : false;
 }
 exports.validateTIN = validateTIN;
-const TIN_PATTERNS = [
+exports.TIN_PATTERNS = [
     { countryCode: 'UA', label: 'Україна', regex: /^\d{10}$/ },
     { countryCode: 'DE', label: 'Німеччина', regex: /^\d{11}$/ },
     { countryCode: 'FR', label: 'Франція', regex: /^\d{13}$/ },
@@ -83,6 +83,6 @@ const TIN_PATTERNS = [
     { countryCode: 'CA_BN', label: 'Канада (BN)', regex: /^\d{9}[A-Z]{2}\d{4}$/ },
 ];
 function detectTINCountry(input) {
-    return TIN_PATTERNS.filter(({ regex }) => regex.test(input));
+    return exports.TIN_PATTERNS.filter(({ regex }) => regex.test(input));
 }
 exports.detectTINCountry = detectTINCountry;
